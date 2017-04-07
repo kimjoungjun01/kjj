@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE students [
+<!ELEMENT students (student)>
+<!ELEMENT student (#PCDATA)>
+
+<!ENTITY knbit "강남교육센터">
+<!ENTITY jrbit "종로교육센터">
+]>
+
+<students>
+  <student>홍길동(&jrbit;)</student>
+  <student>임꺽정(&knbit;)</student>
+  <student>유관순(&jrbit;)</student>
+</students>

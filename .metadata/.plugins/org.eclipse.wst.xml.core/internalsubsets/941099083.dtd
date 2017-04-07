@@ -1,0 +1,27 @@
+
+<!ENTITY % coreattr "id ID #REQUIRED">
+<!ENTITY % co "name CDATA #REQUIRED">
+
+<!ELEMENT students (class+, student+, loc+)>
+
+<!ELEMENT class EMPTY>
+<!ATTLIST class
+  %coreattr;
+  %co;
+>
+
+
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  %coreattr;
+  %co;
+  email CDATA #IMPLIED
+  cid IDREF #REQUIRED
+>
+
+<!ELEMENT loc EMPTY>
+<!ATTLIST loc
+  %coreattr;
+  %co;
+  classes IDREFS #REQUIRED
+>

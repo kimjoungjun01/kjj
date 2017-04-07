@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>html</title>
+  <style>
+  table,th,tr,td,img {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    background-image: url('http://cfile28.uf.tistory.com/image/2137E439521346182E4C25');
+  }
+
+
+  #no {
+    color: red;
+  }
+  #dan {
+    color: green;
+  }
+  input[type="radio"] + label {
+    color: Brown;
+
+  }
+  button:focus {
+    background-color: yellow
+  }
+  #tbody td:hover {
+    text-decoration: underline;
+  }
+
+  </style>
+
+</head>
+<body>
+  <div id='firstdiv'>
+    <table>
+      <thead>
+        <tr>
+          <th id='no'>no.1</th><th id='dan' colspan="3">단어장</th>
+        </tr>
+        <tr>
+          <th>번호</th><th>약자</th><th>풀이</th>
+          <th rowspan="2">
+            <input type="radio" name="pronounce"><label>발음</label>
+            <input type="radio" name="pronounce"><label>뜻</label>
+
+
+          </th>
+        </tr>
+      </thead>
+      <tbody id='tbody'>
+        <tr><td>1</td><td><a href='https://ko.wikipedia.org/wiki/HTML'>HTML</a></td><td><strong>Hyper-Text Markup Language</strong></td><td>하이퍼-텍스트 마크업 랭귀지</td></tr>        <tr>
+        <tr><td>2</td><td><a href='https://namu.wiki/w/XML'>XML</a></td><td><strong>eXtensible Markup Language</td><td>익스텐서블 마크업 랭귀지</td></tr>
+        <tr><td>3</td><td><a href='https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%ED%98%95%EC%8B%9D_%EC%A0%95%EC%9D%98'>DTD</a></td><td><strong>Document Type Definition</strong></td><td>도큐먼트 타입 디피니션</td></tr>
+        <tr><td>4</td><td>...</td><td>.......</td><td>............</td></tr>
+      </tbody>
+
+        <tr id="content">
+          <td colspan="4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" name="prev">prev</button>
+            &nbsp;&nbsp;<button type="button" name="next">next</button>
+          </td>
+        </tr>
+    </table>
+  </div>
+
+
+</body>
+</html>

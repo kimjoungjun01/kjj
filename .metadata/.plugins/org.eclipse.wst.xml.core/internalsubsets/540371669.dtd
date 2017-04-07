@@ -1,0 +1,5 @@
+
+<!ELEMENT student (name, tel, email)>
+<!ELEMENT name EMPTY>
+<!ELEMENT tel EMPTY>
+<!ELEMENT email EMPTY>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Hello World!</title>
+
+  <style>
+
+  div {
+    padding: 5px
+  }
+
+  #email {
+    background: no-repeat right top;
+    background-size: 16px;
+    padding right: 20px
+  }
+
+  </style>
+</head>
+<body>
+<form>
+<div>이메일: <input id="email" type="text" ></div>
+<div>암호: <input id="pwd" type="password" ></div><br>
+<div><button id="signupBtn" type="button">회원가입</button></div>
+</form>
+
+<script>
+var email = document.getElementById("email");
+var btn = document.getElementById("signupBtn");
+
+btn.addEventListener("click", function() {
+  if (email.value == "hong@test.com") {
+    email.style["background-image"] = "url('ok.jpg')"
+  } else {
+    email.style["background-image"] = "url('no.jpg')"
+  }
+});
+
+</script>
+</body>
+</html>
+<!-- 폰트의 사이즈는 높이를 뜻한다-->

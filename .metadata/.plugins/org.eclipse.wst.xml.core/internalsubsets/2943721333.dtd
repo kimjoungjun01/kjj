@@ -1,0 +1,6 @@
+
+<!ELEMENT student (name, tel+, email?, alias*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT tel (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT alias (#PCDATA)>

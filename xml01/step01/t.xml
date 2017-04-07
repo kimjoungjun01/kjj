@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<T>
+  <test1>
+    if (a &lt; b)
+    console.log(a + b)
+    if (a &amp;&amp; b)
+    console.log(a - b)
+  </test1>
+  <test2>
+  <![CDATA[
+    if 고 뭐고 정수고 뭐고 싹다 문자열
+  ]]>
+  </test2>
+</T>

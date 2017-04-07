@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE test SYSTEM "t01.dtd">
+
+<test>
+  <class id="c301" name="301호"/>
+  <class id="c302" name="302호"/>
+  <class id="c303" name="303호"/>
+  <class id="c501" name="501호"/>
+  <class id="c502" name="502호"/>
+
+  <student id="s5001" name="홍길동" cid="c301"/>
+  <student id="s5002" name="가두리" cid="c302"/>
+  <student id="s5003" name="차두리" cid="c303"/>
+  <student id="s5004" name="임꺽정" cid="c501"/>
+  <student id="s5005" name="유관순" cid="c502"/>
+
+  <loc id="l101" name="강남지점" classes="c301 c302 c303"/>
+  <loc id="l102" name="종로지점" classes="c501 c502"/>
+</test>

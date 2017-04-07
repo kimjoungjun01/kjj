@@ -1,0 +1,23 @@
+
+<!ELEMENT test (class+, student+, loc+)>
+
+<!ELEMENT class EMPTY>
+<!ATTLIST class
+  id ID #REQUIRED
+  name CDATA #REQUIRED
+>
+
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  id ID #REQUIRED
+  name  CDATA #REQUIRED
+  email CDATA #IMPLIED
+  cid IDREF #REQUIRED
+>
+
+<!ELEMENT loc EMPTY>
+<!ATTLIST loc
+  id ID #REQUIRED
+  name CDATA #REQUIRED
+  classes IDREFS #REQUIRED
+>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE student [
+<!ELEMENT student (name, tel, email)>
+<!ELEMENT name EMPTY>
+<!ELEMENT tel EMPTY>
+<!ELEMENT email EMPTY>
+]>
+
+<student>
+  <name/>
+  <tel/>
+  <email/>
+</student>

@@ -1,0 +1,7 @@
+
+<!ELEMENT student (name, (home-tel | office-tel), email?, alias*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT home-tel (#PCDATA)>
+<!ELEMENT office-tel (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT alias (#PCDATA)>

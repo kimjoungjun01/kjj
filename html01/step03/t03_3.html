@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>html</title>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="t03_3.css">
+</head>
+<body>
+  <div id='flat'></div>
+  <h1 id='h1'>MY NOTE</h1>
+<div id='main'>
+  <div id='d4'>
+  <form class="form-inline">
+    <div class="form-group"><strong>login</strong><br>
+      <label class="sr-only" for="exampleInputEmail3">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="exampleInputPassword3">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Remember me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default">Sign in</button>
+</div>
+  <div id='d1'>
+    <div id='d2'>
+    <button type="button" >단어장1</button>
+    <button type="button" >단어장2</button>
+    <button type="button" >단어장3</button>
+    <button type="button" >단어장4</button>
+    <button type="button" >단어장5</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>단어:</strong> <input type="text" placeholder="찾으실 내용을 검색하세요.">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th id='no'>no.1</th>
+          <th id='dan' colspan="3">단어장</th>
+        </tr>
+        <tr class="text">
+          <th>번호</th><th>약자</th><th>풀이</th>
+          <th rowspan="2">
+            <button type="button"><label>발음</label></button>
+            <button type="button"><label>뜻</label></button>
+          </th>
+        </tr>
+      </thead>
+      <tbody id='tbody'>
+        <tr><td>1</td><td><a href='https://ko.wikipedia.org/wiki/HTML'>HTML</a></td><td><strong>Hyper-Text Markup Language</strong></td><td>하이퍼-텍스트 마크업 랭귀지</td></tr>        <tr>
+        <tr><td>2</td><td><a href='https://namu.wiki/w/XML'>XML</a></td><td><strong>eXtensible Markup Language</td><td>익스텐서블 마크업 랭귀지</td></tr>
+        <tr><td>3</td><td><a href='https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%ED%98%95%EC%8B%9D_%EC%A0%95%EC%9D%98'>DTD</a></td><td><strong>Document Type Definition</strong></td><td>도큐먼트 타입 디피니션</td></tr>
+        <tr><td>4</td><td>...</td><td>.......</td><td>............</td></tr>
+      </tbody>
+        <tr id="content">
+          <td colspan="4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" name="prev">prev</button>
+            &nbsp;&nbsp;<button type="button" name="next">next</button>
+          </td>
+        </tr>
+    </table>
+  </div>
+
+  <div id="d3">
+    <marquee height="300" width="600" direction="up" >
+      <h3>&nbsp;&nbsp;&nbsp;&nbsp;오늘의 명언!!</h3><br>
+        행복의 문이 <br>
+        하나 닫히면<br>
+        다른 문이 열린다<br>
+        그러나 우리는 종종<br>
+        닫힌 문을 멍하니<br>
+        바라보다가<br>
+        우리를 향해 열린 문을<br>
+        보지 못하게 된다<br><br>
+        - 헬렌켈러
+    </marquee>
+  </div>
+</div>
+<div id='d5'>
+  <div id='d6'>
+  <h3>헬런 애덤스 켈러</h3>
+  <strong>(Helen Adams Keller 1880년 6월 27일 ~ 1968년 6월 1일)</strong><br><br>
+  미국의 작가, 교육자이자 사회주의 운동가이다.
+  그녀는 인문계 학사를 받은
+  최초의 시각, 청각 중복 장애인이다.
+  헬렌 켈러의 장애로 인해
+  가지고 있던 언어적 문제를 앤 설리번 선생과
+  자신의 노력으로 극복한 유년시절을 다룬 영화
+  《미라클 워커》로 인해 그녀의 이야기는
+  전 세계적으로 널리 알려지게 되었다.
+  </div>
+  <div id='ad'>
+    <button id='closeBtn' type="button">x</button>
+  </div>
+</div>
+<script>
+var btn = document.getElementById('closeBtn')
+btn.addEventListener('click', function() {
+  var adDiv = document.getElementById('ad')
+  adDiv.style.display = 'none'
+})
+
+</script>
+</body>
+</html>

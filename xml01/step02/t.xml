@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE classes[
+<!ELEMENT classes (S*, C+, V?, X)>
+<!ELEMENT S SES>
+<!ELEMENT C (#PCDATA)>
+<!ELEMENT V (#PCDATA)>
+<!ELEMENT X (#PCDATA)>
+]>
+<classes>
+  <S/>
+  <C>강남</C>
+  <C>홍대</C>
+  <X>12345</X>
+</classes>

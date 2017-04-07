@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<root-tag>
+  <tag> <!--내용에 < 문자를 포함하면 XML을 분석하는 놈(파서)은 태그의 시작이라고 착
+    각한다. 그래서 오류발생한다-->
+  </tag>
+
+<!-- 오류
+  <code>if (a && b) console.log('okok')</code>
+  <code>if (a || b) console.log('okok')</code>
+-->
+  <code>if (a > b) console.log('okok')</code>
+  <code>if (a &lt; b) console.log('okok')</code>
+  <code>if (a &gt; b) console.log('okok')</code>
+  <code>if (a &amp;&amp; b) console.log('okok')</code>
+
+<!-- 오류2
+  <code script='Java'Script'/>
+  <code script="Java"Script"/>
+-->
+  <code script='Java"Script'/>
+  <code script="Java'Script"/>
+  <code script="Java&quot;Script"/>
+  <code script='Java&apos;Script'/>
+
+  <code>
+  <![CDATA[
+    if (a < 10)
+      console.log("10보다 작다")
+    if (a && b)
+      console.log("a와 b 모두 참이다")
+  ]]>
+  </code>
+
+</root-tag>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE student [
+<!ELEMENT student (name, tel, email?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT tel (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+]>
+
+<student>
+  <name>홍길동</name>
+  <tel>1111-1111</tel>
+  <email>hong@test.com</email> <!--생략가능-->
+</student>

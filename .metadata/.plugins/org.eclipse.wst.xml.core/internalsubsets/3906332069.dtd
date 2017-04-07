@@ -1,0 +1,21 @@
+
+<!ELEMENT students (class+, student+, loc+)>
+<!ELEMENT class EMPTY>
+<!ATTLIST class
+  cid ID #REQUIRED
+  name CDATA #REQUIRED
+>
+
+<!ELEMENT student EMPTY>
+<!ATTLIST student
+  sid ID #REQUIRED
+  cid IDREF #REQUIRED
+  name CDATA #REQUIRED
+  email CDATA #IMPLIED
+>
+
+<!ELEMENT loc EMPTY>
+<!ATTLIST loc
+  name CDATA #REQUIRED
+  classes IDREFS #REQUIRED
+>

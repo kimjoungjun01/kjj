@@ -1,0 +1,59 @@
+
+    body {
+      /*border: solid black 1px;*/
+
+    }
+    div {
+
+      border: solid black 1px;
+    }
+    #main {
+      border-radius: 10px;
+      margin: auto;
+      width: 300px;
+      height: 470px;
+      background-color: gray;
+    }
+    #screen {
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 20px;
+      background-color: darkgray;
+      margin-left: 9px;
+      margin-top: 10px;
+      width: 280px;
+      height: 100px;
+
+    }
+    .c1 {
+      background-color: darkgray;
+      margin-left: 9px;
+      margin-top: 10px;
+      width: 280px;
+      height: 100px;
+    }
+    #btnbox {
+      border-radius: 5px;
+      background-color: lightgray;
+      position: relative;
+      margin-left: 9px;
+      margin-top: 10px;
+      width: 280px;
+      height: 330px;
+    }
+    .btnbox {
+      border-style: groove;
+      text-align: center;
+      position: relative;
+      left: 14px;
+      margin: 5px;
+      width: 50px;
+      height: 50px;
+      float: left;
+    }
+    button {
+
+
+      width: 50px;
+      height: 50px;
+    }

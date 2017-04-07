@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE student [
+<!ELEMENT student (name, (home-tel | office-tel), email?, alias*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT home-tel (#PCDATA)>
+<!ELEMENT office-tel (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT alias (#PCDATA)>
+]>
+
+<student>
+  <name>홍길동</name>
+  <office-tel>1111-2222</office-tel>
+  <!--<home-tel>1111-3333</home-tel> office-tel과 같이쓰면 에러-->
+  <!--<email>hong@test.com</email> 생략가능-->
+  <alias>오소리</alias>
+  <alias>식충이</alias>
+</student>

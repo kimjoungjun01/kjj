@@ -1,0 +1,128 @@
+
+  table,th,tr,td,img {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+  }
+
+  * {
+    /*margin: 1px;
+      border: 1px solid red;*/
+  }
+  div {
+    border: 1px solid red;
+  }
+  body {
+    /*border: 1px solid black;*/
+    background-image: url('http://cfile28.uf.tistory.com/image/2137E439521346182E4C25');
+    background-repeat: no-repeat;
+    background-size: 100% 300%;
+  }
+  table {
+    /*border: 1px solid red;*/
+    background-color: ivory;
+    float: left;
+    margin: 10px auto 0 50px;
+    width: 600px;
+
+  }
+
+  a:visited {color: #4B0082;}
+  a:link {color: red;}
+
+  #d1 {
+    height: 300px;
+    display: inline-block;
+  }
+  #d2 {margin: 70px auto 0 50px;}
+  #d3 {
+    overflow: hidden;
+    border-radius: 30px;
+    background-image: url('img01.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-top: 40px;
+    height: 250px;
+    float: left;
+    width: 200px;
+
+  }
+  #d4 {
+    width: 150px;
+    position: absolute;
+    top: 170px;
+    left: 1100px;
+
+  }
+  #d5 {
+    color: white;
+    position: absolute;
+    top: 0px;
+    width: 150px;
+    height: 1020px;
+    background-color: black;
+  }
+  #d6 {
+    position: absolute;
+    width: 150px;
+    padding-right: 4px;
+  }
+
+  #ad {
+    cursor: pointer;
+    margin-top: 30%;
+    position: fixed;
+    width: 150px;
+    height: 200px;
+    background-image: url("book.jpg");
+    background-size: 100% 100%;
+  }
+  #closeBtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    color: black;
+    border-style: none;
+  }
+
+  #tbody td:hover {
+    text-decoration: underline;
+  }
+  #no {
+    color: red;
+  }
+  #dan {
+    color: #4B0082;
+  }
+  #h1 {
+
+    position: relative;
+    top: 10px;
+    overflow: hidden;
+    width: 150px;
+    height: 0px;
+    margin: 0 0 0 35%;
+    padding-top: 60px;
+    /*align: center;*/
+    background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTKFF_pMuHd8PjVEipi_OJSNNDT0APyp-cmn4MgMrdPWnu6tDIM');
+    background-repeat: no-repeat;
+    background-size: 120% 120%;
+    background-position: center center;
+    border-radius: 30px;
+    border: gray groove 5px;
+  }
+  #main {
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  #flat {
+    width: 1300px;
+    background-position: center;
+    height: 150px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url(http://cfs11.blog.daum.net/image/25/blog/2008/03/28/13/03/47ec6e2398d66);
+  }

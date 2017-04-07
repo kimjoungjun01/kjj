@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>html</title>
+  <style>
+  table,th,tr,td,img {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+  }
+
+  * {
+  }
+  body {
+    background-image: url('http://cfile28.uf.tistory.com/image/2137E439521346182E4C25');
+    background-repeat: no-repeat;
+    background-size: 100% 300%;
+  }
+  table {
+    background-color: ivory;
+    position: relative;
+    top: 170px
+
+  }
+  thead button{
+    background-color: darkgray;
+    color: blue;
+  }
+  thead button:focus {
+    background-color: yellow;
+  }
+  div#d1 button:focus {
+    background-color: red;
+  }
+  a:visited {
+    color: 	#4B0082;
+  }
+  a:link {
+    color: red;
+  }
+
+  #d1 {
+    position: relative;
+    top: -50px
+
+  }
+  #tbody td:hover {
+    text-decoration: underline;
+  }
+  #no {
+    color: red;
+  }
+  #dan {
+    color: #4B0082;
+  }
+  #h1 {
+    overflow: hidden;
+    height: 0px;
+    margin: 0 41%;
+    padding-top: 60px;
+    align: center;
+    background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTKFF_pMuHd8PjVEipi_OJSNNDT0APyp-cmn4MgMrdPWnu6tDIM');
+    background-repeat: no-repeat;
+    background-size: 120% 120%;
+    background-position: center center;
+    border-radius: 30px;
+    border: gray groove 5px;
+  }
+
+  </style>
+</head>
+<body>
+  <h1 id='h1'>MY NOTE</h1>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th id='no'>no.1</th>
+          <th id='dan' colspan="3">단어장</th>
+        </tr>
+        <tr class="text">
+          <th>번호</th><th>약자</th><th>풀이</th>
+          <th rowspan="2">
+            <button type="button"><label>발음</label></button>
+            <button type="button"><label>뜻</label></button>
+          </th>
+        </tr>
+      </thead>
+      <tbody id='tbody'>
+        <tr><td>1</td><td><a href='https://ko.wikipedia.org/wiki/HTML'>HTML</a></td><td><strong>Hyper-Text Markup Language</strong></td><td>하이퍼-텍스트 마크업 랭귀지</td></tr>        <tr>
+        <tr><td>2</td><td><a href='https://namu.wiki/w/XML'>XML</a></td><td><strong>eXtensible Markup Language</td><td>익스텐서블 마크업 랭귀지</td></tr>
+        <tr><td>3</td><td><a href='https://ko.wikipedia.org/wiki/%EB%AC%B8%EC%84%9C_%ED%98%95%EC%8B%9D_%EC%A0%95%EC%9D%98'>DTD</a></td><td><strong>Document Type Definition</strong></td><td>도큐먼트 타입 디피니션</td></tr>
+        <tr><td>4</td><td>...</td><td>.......</td><td>............</td></tr>
+      </tbody>
+        <tr id="content">
+          <td colspan="4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" name="prev">prev</button>
+            &nbsp;&nbsp;<button type="button" name="next">next</button>
+          </td>
+        </tr>
+    </table>
+  </div>
+  <div id='d1'>
+    <button type="button" >단어장1</button>
+    <button type="button" >단어장2</button>
+    <button type="button" >단어장3</button>
+    <button type="button" >단어장4</button>
+    <button type="button" >단어장5</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>단어:</strong> <input type="text" placeholder="찾으실 내용을 검색하세요.">
+  </div>
+
+
+
+</body>
+</html>

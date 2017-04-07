@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+XML (Extensible Mark up Language)
+-->
+<students>
+  <student>
+    <name>홍길동</name>
+    <tel>1111-2222</tel>
+    <email>hong@test.com</email>
+  </student>
+  <student>
+    <name>임꺽정</name>
+    <tel>2222-3333</tel>
+    <email>leem@test.com</email>
+  </student>
+</students>

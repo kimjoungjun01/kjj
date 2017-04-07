@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE test[
+<!ELEMENT test EMPTY>
+<!ATTLIST test
+  S CDATA #REQUIRED
+  C CDATA #IMPLIED
+  V CDATA #FIXED "BUPYEONG"
+  X (R | L) #IMPLIED
+>
+]>
+<test
+  S="11"
+  V="BUPYEONG"
+  X="R"
+/>

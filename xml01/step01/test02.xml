@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<students version='1.0'> <!--시작태그이며, student태그의 부모태그라 부른다.-->
+내용....(content)
+  <student> <!-- 이태그를 기준으로 삼으면-->
+    <name>홍길동</name> <!-- student 태그의 자식태그라 부른다-->
+    <tel>1111-1111</tel>
+  </student>
+</students> <!--끝태그-->

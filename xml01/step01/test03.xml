@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<students>
+  <student></student>
+<!--오류
+<student>
+-->
+
+  <student    /> <!-- 내용이 없을때만 끝태그 생략가능 -->
+<!--오류2
+<student/  >
+-->
+
+  <student><name>홍길동</name></student>
+<!--오류3
+<student><name>홍길동</student></name>
+-->
+
+<!--오류4
+<  student></student>
+-->
+
+
+
+</students>
+
+<!--오류5
+<okok>
+</okok>
+-->
