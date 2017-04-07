@@ -17,78 +17,48 @@
   var btn0 = document.querySelector('#btn0')
   var btnEq = document.querySelector('#btnEq')
   var Sc = document.querySelector('#screen')
-  var result;
-  var value;
+  var value1 = 0;
+  var value2 = 0;
+  var result = 0;
   var Op;
 
-  btn1.addEventListener('click', function() {
-    // console.log('???')
-    var e = document.querySelector("#screen")
-    e.innerHTML +='1'
-  })
-  btn2.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='2'
-  })
-  btn3.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='3'
-  })
-  btn4.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='4'
-  })
-  btn5.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='5'
-  })
-  btn6.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='6'
-  })
-  btn7.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='7'
-  })
-  btn8.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='8'
-  })
-  btn9.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='9'
-  })
-  btn0.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='0'
-  })
-
-  btnP.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='+'
-  })
+  btn1.addEventListener('click', function () {
+    if(btn1.innerHTML == 1) {
 
 
-  btnDV.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='/'
+      Sc.innerHTML += '1'
+      value1 = value1 + '1'
+      value1 = Number(value1)
+
+
+
+      console.log(Sc.innerHTML)
+      console.log(value1)
+    }
   })
-  btnM.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='-'
+  btn2.addEventListener('click', function () {
+    if(btn2.innerHTML == 2) {
+
+      Sc.innerHTML += "2"
+      value1 = value1
+      value1 = Number(value1)
+
+      value2 = value2 + '2'
+      value2 = Number(value2)
+
+
+      console.log(Sc.innerHTML)
+      console.log(value1)
+    }
   })
-  btnPoint.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='.'
+  btnP.addEventListener('click', function () {
+      if (Sc.innerHTML) {
+        Sc.innerHTML= ''
+      }
+      console.log(Sc.innerHTML)
+      console.log(value1)
+
   })
-  btnMT.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML +='*'
-  })
-  btnEq.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-  })
-  btnAC.addEventListener('click', function() {
-    var e = document.querySelector("#screen")
-    e.innerHTML =''
+  btnEq.addEventListener('click', function () {
+      Sc.innerHTML = value1 + value2
   })
