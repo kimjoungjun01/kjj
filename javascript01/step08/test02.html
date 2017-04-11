@@ -1,0 +1,58 @@
+<!-- AJAX 사용법 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <style>
+  body {
+    background-color: gray;
+  }
+  body > div {
+    border: 1px solid red;
+    min-height: 300px;
+
+  }
+  </style>
+</head>
+<body>
+  <button id="btn1" type="button">서버에 요청하기</button>
+  <button id="btn2" type="button">서버에서 받은 값 출력하기</button><br>
+  <textarea id="ta" rows="20" cols="80"></textarea>
+<script>
+"use strict"
+
+var btn1 = document.querySelector('#btn1')
+var btn2 = document.querySelector('#btn2')
+var xhr;
+
+btn1.addEventListener('click', function() {
+  xhr = new XMLHttpRequest()
+  //1) AJAX를 처리할 객체를 준비한다.
+  var ta = document.querySelector('#ta')
+  //2) 서버에 연결한다.
+  xhr.open('get', 'http://localhost:8080/webapp/student/list.json', true)
+  //3) 서버에 요청정보를 보낸다.
+  //true = 비동기방식을 요청
+  //false = 동기방식을 요청
+  xhr.send()//비동기 요청이라 서버에서 결과를 받기도 전에 리턴
+  //그래서 responseText 안에는 아무것도 들어있지 않는다
+  //4) 서버가 응답한 데이터를 출력한다.
+  // console.log(xhr.responseText)
+  ta.value = xhr.responseText
+  window.alert("실행완료")
+})
+
+btn2.addEventListener('click', function() {
+  ta.value = xhr.responseText
+})
+
+
+</script>
+</body>
+</html>
+
+
+
+
+<!-- -->
