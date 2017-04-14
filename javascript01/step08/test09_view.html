@@ -1,0 +1,206 @@
+<!-- AJAX 사용법 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <style>
+  .container {
+    width: 600px;
+    margin: 0px auto;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>학생정보</h1>
+  <form class="form-horizontal">
+    <div class="form-group bit-view">
+    <label class="col-sm-2 control-label">번호</label>
+    <div class="col-sm-10">
+      <p class="form-control-static" id='fi-num'></p>
+    </div>
+  </div>
+
+    <div class="form-group">
+    <label for="fi-eamil" class="col-sm-2 control-label">이메일</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="fi-email" placeholder="이메일">
+    </div>
+  </div>
+  <div class="form-group">
+  <label for="fi-name" class="col-sm-2 control-label">이름</label>
+  <div class="col-sm-4">
+    <input type="text" class="form-control" id="fi-name" placeholder="이름">
+  </div>
+</div>
+<div class="form-group" >
+<label for="fi-tel" class="col-sm-2 control-label">전화번호</label>
+<div class="col-sm-4">
+  <input type="text" class="form-control" id="fi-tel" placeholder="전화번호">
+</div>
+</div>
+  <div class="form-group">
+  <label for="fi-scname" class="col-sm-2 control-label">학교명</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="fi-scname" placeholder="학교명">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="fi-working"> 재직중
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-default bit-view" id='upd-btn'>변경</button>
+      <button type="button" class="btn btn-default bit-view" id='del-btn'>삭제</button>
+      <button type="button" class="btn btn-default bit-new" id='add-btn'>추가</button>
+      <button type="button" class="btn btn-default" id='lst-btn'>목록</button>
+    </div>
+  </div>
+  </form>
+</div>
+<script src='t2.js'></script>
+<script>
+"use strict"
+
+var fiNumber = $('#fi-num')
+var fiName = $('#fi-name')
+var fiTel = $('#fi-tel')
+var fiEmail = $('#fi-email')
+var fiSchoolName = $('#fi-scname')
+var fiWorking = $('#fi-working')
+var updBtn = $('#upd-btn');
+var delBtn = $('#del-btn');
+var lstBtn = $('#lst-btn');
+var addBtn = $('#add-btn');
+
+if (location.search == "") {
+  console.log("d")
+  var viewTags = $('.bit-view')
+  for (var e of viewTags) {
+    e.style.display = 'none'
+  }
+  addBtn.onclick = function() {
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState < 4)
+        return
+      var result = JSON.parse(xhr.responseText)
+
+      if (result.status != 'success') {
+        alert('추가하는데 실패했습니다.')
+        return
+      }
+
+      location.href = 'test09_list.html'
+    }
+    xhr.open('post', 'http://localhost:8080/webapp/student/add.json', true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.send('name=' + fiName.value +
+            '&email=' + fiEmail.value +
+            '&tel=' + fiTel.value +
+            '&schoolName=' + fiSchoolName.value +
+            '&working=' + fiWorking.checked)
+  }
+
+} else {
+  var newTags = $('.bit-new')
+  for (var e of newTags) {
+    e.style.display = 'none'
+  }
+
+  // URL에서 학생 번호(no)를 추출한다.
+  var no = location.search.substring(1).split('=')[1]
+
+  // 학생 번호를 사용하여 서버에 상세 정보를 요청한다.
+  var xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState < 4)
+      return
+    var result = JSON.parse(xhr.responseText)
+
+    if (result.status != 'success') {
+      alert('데이터를 가져오는데 실패했습니다.')
+      return
+    }
+
+    var student = result.data
+    fiNumber.textContent = student.memberNo
+    fiEmail.value = student.email
+    fiName.value = student.name
+    fiTel.value = student.tel
+    fiSchoolName.value = student.schoolName
+    fiWorking.checked = student.working
+  }
+  xhr.open('get', 'http://localhost:8080/webapp/student/detail.json?memberNo=' + no, true)
+  xhr.send()
+
+  updBtn.onclick = function() {
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState < 4)
+        return
+      var result = JSON.parse(xhr.responseText)
+
+      if (result.status != 'success') {
+        alert('변경하는데 실패했습니다.')
+        return
+      }
+
+      alert('변경했습니다!')
+    }
+    xhr.open('post', 'http://localhost:8080/webapp/student/update.json', true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    xhr.send('memberNo=' + no +
+            '&name=' + fiName.value +
+            '&email=' + fiEmail.value +
+            '&tel=' + fiTel.value +
+            '&schoolName=' + fiSchoolName.value +
+            '&working=' + fiWorking.checked)
+  }
+
+  delBtn.onclick = function() {
+    var xhr = new XMLHttpRequest()
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState < 4)
+        return
+      var result = JSON.parse(xhr.responseText)
+
+      if (result.status != 'success') {
+        alert('삭제하는데 실패했습니다.')
+        return
+      }
+
+      location.href = 'test09_list.html'
+    }
+    xhr.open('get', 'http://localhost:8080/webapp/student/delete.json?memberNo=' + no, true)
+    xhr.send()
+  }
+} // else
+
+
+
+  lstBtn.onclick = function() {
+    location.href = 'test09_list.html'
+  }
+
+</script>
+</body>
+</html>
+
+
+
+
+<!-- -->

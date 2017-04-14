@@ -1,0 +1,42 @@
+<!-- DOM API 사용법 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+</head>
+<body>
+  <p id=p1></p>
+  <!-- <button id='p1' type="button">버튼1</button> -->
+  <a id='btn1' href='http://www.daum.net'>버튼1</a>
+  <a id='btn2' href='http://www.daum.net'>버튼2</a>
+  <a id='btn3' href='http://www.daum.net' onclick ='f1(event); return false'>버튼3</a>
+  <a id='btn4' href='http://www.daum.net' onclick ='return f2(event)'>버튼4</a>
+<script>
+var p1 = document.querySelector('#p1')
+var btn1 = document.querySelector('#btn1');
+var btn2 = document.querySelector('#btn2');
+var btn3 = document.querySelector('#btn3');
+var btn4 = document.querySelector('#btn4');
+
+
+btn1.addEventListener('click', function(event) {
+  p1.textContent = this.textContent
+})
+btn2.addEventListener('click', function(event) {
+  p1.textContent = this.textContent
+  event.preventDefault()
+})
+function f1(event) {
+  p1.textContent = event.target.textContent
+}
+function f2(event) {
+  p1.textContent = event.target.textContent
+  return false
+}
+
+</script>
+
+</body>
+</html>
