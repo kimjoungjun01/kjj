@@ -27,3 +27,13 @@ a1[4] = 100;
 
 console.log(a1.length);
 console.log(a1[1]);
+
+//문자열 여러줄 입력
+var str = "안녕하세요" +
+          "홍길동입니다"
+console.log(str)
+
+var str2 = "안녕하세요 \
+홍길동 \
+입니다"
+console.log(str2)

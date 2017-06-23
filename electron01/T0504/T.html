@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>퍼즐?</title>
+
+<style media="screen">
+  #blank {
+    background-color: darkgray;
+  }
+  #main {
+    width: 416.5px;
+    height: 416px;
+    border: solid black 1px;
+    padding: 1px;
+  }
+ .num {
+  margin: 1px;
+  border: solid black 1px;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  /*position: relative;*/
+  float: left;
+ }
+
+
+
+</style>
+
+
+</head>
+<body>
+  <div class="" id = 'main'>
+    <div class = "num" type="button" value="1">1</div>
+    <div class = "num" type="button" value="2">2</div>
+    <div class = "num" type="button" value="3">3</div>
+    <div class = "num" type="button" value="4">4</div><br>
+    <div class = "num" type="button" value="5">5</div>
+    <div class = "num" type="button" value="6">6</div>
+    <div class = "num" type="button" value="7">7</div>
+    <div class = "num" type="button" value="8">8</div><br>
+    <div class = "num" type="button" value="9">9</div>
+    <div class = "num" type="button" value="10">10</div>
+    <div class = "num" type="button" value="11">11</div>
+    <div class = "num" type="button" value="12">12</div><br>
+    <div class = "num" type="button" value="13">13</div>
+    <div class = "num" type="button" value="14">14</div>
+    <div class = "num" type="button" value="15">15</div>
+    <div class = "num" id='blank' type="button" value=""> </div>
+  </div>
+</body>
+<script>
+"use strict"
+window.$ = window.jQuery = require('jquery')
+
+  var btnlist = document.querySelectorAll('.num')
+  var blank = document.querySelector('#blank')
+  var first = true;
+  var two = true;
+  var value
+  var value2
+  for (let i = 0; i < btnlist.length; i++ ) {
+
+    btnlist[i].onclick = f1;
+  }
+
+
+  function f1() {
+    if (first == true) {
+      value = this.textContent
+      blank.textContent = this.textContent
+      console.log(value)
+      this.textContent = ""
+      first = false
+    } else if (two == true){
+      if (this.textContent == "") {
+        alert("숫자를 선택해주세요")
+      } else {
+        two = false
+        value2 = this.textContent
+        this.textContent = parseInt(value)
+        console.log(value)
+        value = value2
+        this.textContent = ""
+      }
+    } else {
+      if(this.textContent != ""){
+        alert("빈 공간을 선택해주세요!")
+      } else {
+        two = true
+        this.textContent = parseInt(value)
+        console.log(value)
+      }
+    }
+  }
+</script>
+</html>

@@ -1,0 +1,22 @@
+package step27.ex2;
+
+public class Engine extends Car{
+  int valve;
+  int cylinder;
+  
+  
+  public int getValve() {
+    return valve;
+  }
+  public void setValve(int valve) {
+    this.valve = valve;
+  }
+  public int getCylinder() {
+    return cylinder;
+  }
+  public void setCylinder(int cylinder) {
+    this.cylinder = cylinder;
+  }
+  
+  
+}

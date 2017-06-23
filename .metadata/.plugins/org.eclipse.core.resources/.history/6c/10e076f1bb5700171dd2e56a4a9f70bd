@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="step28.ex4.MemberDao"><!-- MemDaoImpl의 selectList 에서 보면 
+                         step28.ex2.MemberDao.selectList 를 넘기는데 앞부분이 namespace로 넘어오고
+                         뒷부분이 id 로 넘어온다-->
+                         
+                         
+                         <!-- setter getter 를 프로퍼티라 부르고, 인스턴스변수를 필드라 부른다
+                         프로퍼티명은 setHompage 에서 hompage인 것
+                          -->
+                          
+  <resultMap type="member" id="memberMap">
+    <result column="mno" property="no"/>
+    <result column="email" property="email"/>
+    <result column="name" property="name"/>
+    <result column="tel" property="tel"/>
+    <result column="pwd" property="password"/>
+  </resultMap>
+  
+  <sql id="select1">
+    select mno, name, tel, email 
+    from memb
+  </sql>
+  
+  <select id="selectList" resultMap="memberMap" parameterType="map">
+    <include refid="select1"/>
+      <if test="serch != null">
+        <where>
+        
+        <!-- ${serch} like concat('%', #{value}, '%') -->
+        <!-- 이 한 줄로 해결이 되긴한다 하지만 이 방법은 보안에 매우 취약하여 쓰지않는다 -->
+     
+          <choose>
+            <when test="serch == 'email'">
+              email = #{value}
+            </when>
+            <when test="serch == 'name'">
+              name like concat('%', #{value}, '%')
+            </when>
+            <when test="serch == 'tel'">
+              tel like concat('%', #{value}, '%')
+            </when>        
+          </choose>
+   
+        </where>
+      </if>    
+    order by name asc 
+    limit #{start}, #{pageSize} 
+    <!-- MemberDaoImpl의 selectList 에서 받아온다 -->
+  </select>
+  
+   <select id="selectListByNames" resultMap="memberMap" parameterType="map">
+    <include refid="select1"/>
+      <if test="names != null">
+        <where>
+          name in 
+          <foreach collection="names" item="name" open="(" close=")" separator=",">
+            #{name}
+          </foreach>
+        </where>
+      </if>    
+    order by name asc 
+    limit #{start}, #{pageSize} 
+    <!-- MemberDaoImpl의 selectList 에서 받아온다 -->
+  </select>
+  
+  <select id="selectOne" resultMap="memberMap" parameterType="int">
+    <include refid="select1"/>
+    where mno=#{gooooooooood}
+         <!-- 원시타입(int 등)의 파라미터를 받을떄는 아무이름이나 지정하면된다 -->
+  </select>
+  
+  <select id="selectOneByEmailPassword" resultType="member" parameterType="map">
+    <include refid="select1"/>
+    where email=#{email} and pwd=password(#{password})
+  </select>
+  
+  <insert id="insert" parameterType="member" useGeneratedKeys="true" keyColumn="mno">
+    insert into memb(name,tel,email,pwd) 
+    values(#{name},#{tel},#{email},password(#{password}))
+  </insert>
+  
+  <update id="update" parameterType="member">
+    update memb set name=#{name}, tel=#{tel}, email=#{email}, pwd=password(#{password}) where mno=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from memb where mno=#{zzzzzz}
+  </delete>
+  
+</mapper>

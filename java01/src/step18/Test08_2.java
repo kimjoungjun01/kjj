@@ -13,6 +13,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import com.mysql.jdbc.StandardSocketFactory;
+
 public class Test08_2 {
   ArrayList<ChatJob> chatJobs = new ArrayList<>();
   
@@ -51,6 +53,8 @@ public class Test08_2 {
       this.address = ((InetSocketAddress)socket.getRemoteSocketAddress()).getHostString();
       System.out.println(address);
       chatJobs.add(this);
+      System.out.println(this);
+      
     }
     
     public void run() {

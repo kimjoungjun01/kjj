@@ -1,0 +1,12 @@
+package step26;
+
+import java.lang.reflect.Method;
+
+public class test08 {
+
+  public static void main(String[] args) throws Exception {
+    Class<?> clazz = Date.class;
+    Date obj = (Date)clazz.newInstance();
+    System.out.println(obj);
+  }
+}

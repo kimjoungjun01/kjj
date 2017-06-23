@@ -1,0 +1,17 @@
+package step28.ex6;
+
+
+import java.util.List;
+import java.util.Map;
+
+
+public interface MemberDao {
+
+  List<Member> selectListByNames(Map<String,Object> valueMap) throws Exception;
+  List<Member> selectList(Map<String,Object> valueMap) throws Exception;
+  Member selectOne(int no) throws Exception;
+  Member selectOneByEmailPassword(Map<String,Object> valueMap) throws Exception;
+  int insert(Member member) throws Exception;
+  int delete(int no) throws Exception;
+  int update(Member member) throws Exception;
+}

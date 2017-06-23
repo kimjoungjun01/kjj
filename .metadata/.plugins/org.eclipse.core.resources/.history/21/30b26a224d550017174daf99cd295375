@@ -1,0 +1,13 @@
+package step26;
+
+public class test01 {
+
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+    String obj = new String("Hello");
+    Class<?> c1 = obj.getClass();
+    
+    Class<?> c2 = Class.forName("java.lang.String")
+  }
+
+}

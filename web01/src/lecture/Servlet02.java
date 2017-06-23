@@ -58,13 +58,20 @@ public class Servlet02 extends GenericServlet {
       
       List<Lecture> list = lectureDao.selectList(pageNo, pageSize);
       
-      out.println("<a href='form.html'>교실</a>");
+      out.println("<a href='form'>새 강의</a>");
       out.println("<table border='1'>");
       out.println("<thead>");
-      out.println("  <tr><th>번호</th><th>제목</th><th>시작일</th><th>종료일</th><th>수강가능인원</th><th>총시간</th>");
+      out.println("  <tr><th>번호</th><th>강의명</th><th>시작일</th><th>종료일</th><th>인원</th><th>총시간</th>");
       out.println("</thead>");
       out.println("<tbody>");
       
+//      lecture = new Lecture();
+//      lecture.setNo(rs.getInt("lno"));
+//      lecture.setTitl(rs.getString("titl"));
+//      lecture.setSdt(rs.getString("sdt"));
+//      lecture.setEdt(rs.getString("edt"));
+//      lecture.setQty(rs.getInt("qty"));
+//      lecture.setThrs(rs.getString("thrs"));
       for (Lecture l : list) {
         out.println("<tr>");
         out.printf("  <td>%d</td>\n", l.getNo());
@@ -74,6 +81,7 @@ public class Servlet02 extends GenericServlet {
         out.printf("  <td>%s</td>\n", l.getQty());
         out.printf("  <td>%s</td>\n", l.getThrs());
         out.println("</tr>");
+        System.out.println(l.getNo());
       }
       out.println(" </tbody>");
       out.println("</table>");

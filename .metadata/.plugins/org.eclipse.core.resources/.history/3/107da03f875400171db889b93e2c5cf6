@@ -1,0 +1,22 @@
+package bitcamp.java93.dao;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import bitcamp.java93.domain.Member;
+import bitcamp.java93.util.DBConnectionPool;
+
+public interface MemberDao {
+  public MemberDao(DBConnectionPool conPool) {
+  public List<Member> selectList(int pageNo, int pageSize) throws Exception {
+  public Member selectOne(int no) throws Exception {
+  public Member selectOneByEmailPassword(String email, String password) throws Exception {
+  public int insert(Member member) throws Exception {
+  public int delete(int no) throws Exception {
+  public int update(Member member) throws Exception {
+}

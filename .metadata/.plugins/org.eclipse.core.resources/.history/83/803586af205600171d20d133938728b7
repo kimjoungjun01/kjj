@@ -1,0 +1,12 @@
+package step27.ex3;
+
+import java.util.ArrayList;
+
+public class Test02 {
+  public static void main(String[] args) {
+    Car c1 = CarFactory.createCar("tico");
+    Car c2 = CarFactory.createCar("tico");
+    Car c3 = CarFactory.createCar("sonata");
+    
+  }
+}

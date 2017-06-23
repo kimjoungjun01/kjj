@@ -6,12 +6,15 @@ package lecture;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+
+
 
 @WebServlet(urlPatterns="/lecture/Servlet04")
 public class Servlet04  extends GenericServlet {
@@ -37,10 +40,13 @@ public class Servlet04  extends GenericServlet {
     String jdbcPassword = "1111";
     
     try {
+      
       DBConnectionPool conPool = new DBConnectionPool(
           jdbcDriver, jdbcUrl, jdbcUsername, jdbcPassword);
       
       LectureDao lectureDao = new LectureDao(conPool);
+      CroomDao croomDao = new CroomDao(conPool);
+      List<Croom> classRoomList = croomDao.selectList();
       
       int no = Integer.parseInt(req.getParameter("no"));
       
@@ -48,10 +54,21 @@ public class Servlet04  extends GenericServlet {
       if (lecture == null) {
         throw new Exception(no + "번 회원이 없습니다.");
       }
+      System.out.println(lecture.getCrmno());
       
       out.printf("<form action='Servlet05' method='POST'>\n");
       out.printf("번호:<input type='text' name='no' value='%d' readonly><br>\n", lecture.getNo());
-      out.printf("강의실일련번호:<input type='text' name='crmno' value='%d'><br>\n", lecture.getCrmno());
+      out.printf("강의실일련번호:<select name='crmno'>");
+      out.printf("<option value='0'></option>");
+      
+      for (Croom c : classRoomList) {
+        if (c.getNo() == lecture.getCrmno()) {
+          out.printf("<option value= %d selected>%s</option>", c.getNo(), c.getName());
+        }
+        out.printf("<option value= %d>%s</option>", c.getNo(), c.getName());
+      }
+      
+      out.printf("</select><br>\n", lecture.getCrmno());
       out.printf("매니저일련번호:<input type='text' name='mrno' value='%d'><br>\n", lecture.getMrno());
       out.printf("타이틀:<input type='text' name='titl' value='%s'><br>\n", lecture.getTitl());
       out.printf("설명:<input type='text' name='dscp' value='%s'><br>\n", lecture.getDscp());

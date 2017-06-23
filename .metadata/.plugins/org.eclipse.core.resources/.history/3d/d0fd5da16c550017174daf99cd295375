@@ -1,0 +1,11 @@
+package step27.ex1;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Test02 {
+  public static void main(String[] args) throws Exception {
+    File file = new File("step27/ex1/application-context-01.xml");
+    System.out.println(file.getCanonicalPath());
+  }
+}

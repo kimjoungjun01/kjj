@@ -91,15 +91,17 @@ public class LectureDao {
 
     try (
         PreparedStatement stmt = con.prepareStatement(
-            "insert into lect(crmno, titl, dscp, sdt, edt, qty, pric, thrs) values(?,?,?,?,?,?,?,?)");) {
-      
-      stmt.setString(2, lecture.getTitl());
-      stmt.setString(3, lecture.getDscp());
-      stmt.setString(4, lecture.getSdt());
-      stmt.setString(5, lecture.getEdt());
-      stmt.setInt(6, lecture.getQty());
-      stmt.setInt(7, lecture.getPric());
-      stmt.setString(8, lecture.getThrs());
+            "insert into lect( crmno, mrno, titl, dscp, sdt, edt, qty, pric, thrs) values(?,?,?,?,?,?,?,?,?)");) {
+      stmt.setInt(1, lecture.getCrmno());
+      stmt.setInt(2, lecture.getMrno());
+
+      stmt.setString(3, lecture.getTitl());
+      stmt.setString(4, lecture.getDscp());
+      stmt.setString(5, lecture.getSdt());
+      stmt.setString(6, lecture.getEdt());
+      stmt.setInt(7, lecture.getQty());
+      stmt.setInt(8, lecture.getPric());
+      stmt.setString(9, lecture.getThrs());
 
 
       return stmt.executeUpdate();
@@ -124,16 +126,16 @@ public class LectureDao {
 
   }
 
-  public int update(Lecture croom) throws Exception {
+  public int update(Lecture lecture) throws Exception {
     Connection con = conPool.getConnection();
 
     try (
         PreparedStatement stmt = con.prepareStatement(
-            "update croom set name=? where crmno=?");) {
+            "update lecture set name=? where lno=?");) {
 
 //      stmt.setString(1, croom.setTitl());
 
-      stmt.setInt(2, croom.getNo());
+      stmt.setInt(2, lecture.getNo());
 
       return stmt.executeUpdate();
     } finally {

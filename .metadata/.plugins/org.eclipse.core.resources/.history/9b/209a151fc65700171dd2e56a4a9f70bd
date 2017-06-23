@@ -1,0 +1,24 @@
+package step28.ex5;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.FactoryBean;
+
+public class SqlSessionFactoryFactoryBean implements FactoryBean {
+
+  @Override
+  public Object getObject() throws Exception {
+  }
+
+  @Override
+  public Class getObjectType() {
+    // TODO Auto-generated method stub
+    return SqlSessionFactory.class;
+  }
+
+  @Override
+  public boolean isSingleton() {
+    // TODO Auto-generated method stub
+    return true;
+  }
+  
+}

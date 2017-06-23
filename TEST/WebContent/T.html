@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>taza</title>
+  </head>
+
+
+<link rel="stylesheet" type="text/css" href="T.css">
+  <body>
+    <div class="game">
+      <div class="game-target-container" id = a1>
+        <div type="button" id = "start" value ="시작하기" onclick="first()">시작하기</div>
+      </div>
+    </div>
+
+  </body>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+  //제이쿼리를 쓰면 제이슨을 불러오기위한 뭔가 막 쓸 필요가 없다
+  //그냥 getJSON 쓰면 됨
+  "use script"
+  
+
+  var note = document.querySelector("#a1")
+  var text = document.querySelector("target")
+  var value = []
+  // var valueLength = value.length
+  var idx = getRandomInt(0, value.length + 19)
+  // var item = value[0]
+  var SBox = []
+  var FBox = []
+  var s = -1
+  var f = -1
+
+  $.getJSON("T.json", function(data) {
+    //제이슨에서 받아온 배열은 data에 저장된다
+    value = [data.words]
+    // console.log(item)
+  })
+
+  function first() {
+    //시작 이벤트
+    // console.log(data.words)
+    $(".game").after('<input type="text" id="target" onKeyDown="enter()"/>')
+    $("#target").after('<span id = "timeout"></span>')
+    $("#start").remove()
+    // console.log(item)
+    note.textContent = value[0][idx]
+    s = -1
+    f = -1
+    SBox = []
+    FBox = []
+    SBox.length = 0
+    FBox.length = 0
+    console.log(SBox.legth, FBox.length +" 박스크기")
+
+    timeout()
+    enter()
+  }
+
+  function timeout() {
+    $("#result").remove();
+    console.log("카운트실행")
+    //시간 초
+    var count = 10
+    var interval = setInterval(function() {
+    if (count == 0) {
+      clearInterval(interval)
+      createDiv()
+      note.textContent = ""
+      $("#a1").append('<div type="text" id = "finish" value = "끝" onclick="first()">끝</div>')
+      setTimeout( function() {
+        note.textContent = ""
+        $('#final').remove()
+        $("#a1").append('<div type="button" id = "start" value ="시작하기" onclick="first()">Continue?</div>')
+      }, 3000);
+    }
+    $('#timeout').text(count--)
+    }, 1000)
+  }
+
+  function createDiv() {
+    //div 태그 추가
+    var div = "<div id='result'>" +
+    '결과<br>' +
+    '맞춘 횟수: ' + parseInt(SBox.length) + '<br>' +
+    '틀린 횟수: ' + parseInt(FBox.length) +'<br>' +
+    "</div>"
+    console.log(SBox.length)
+    $("#timeout").after(div)
+    $("#timeout").remove()
+    $("#target").remove()
+  }
+
+  function getRandomInt(min, max) {
+    //숫자 랜덤으로 받는 함수
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+    // for (var i = min; i < max)
+  }
+
+  function createSBox() {
+    //입력값을 배열에 담아두기!
+    //성공한 값
+    ++s
+    SBox[s] = value[0][idx]
+    console.log(SBox[s] + " " + SBox.length + " 박스!")
+  }
+
+  function createFBox() {
+    //입력값을 배열에 담아두기!
+    //실패한 값
+    ++f
+    FBox[f] = ""
+    console.log(FBox[f] + " " + FBox.length + " 박스!")
+
+  }
+
+
+  function enter() {
+    //엔터 이벤트
+    if(event.keyCode == 13) {
+      if (target.value == value[0][idx]) {
+        //내가 target에서 입력한 값은 target.value에서 찾을수 있다
+        //value는 본래 있는 값
+
+        createSBox()
+        getRandomInt()
+
+        console.log(idx + " idx")
+        idx = getRandomInt(0, value.length + 19)
+        // item = value[idx]
+        // console.log(item + " item")
+        note.textContent = value[0][idx]
+        target.value = ""
+
+        //맞으면 빨간색 제거
+        $('#target').removeClass('pop')
+      } else {
+        createFBox()
+        //틀리면 빨간색
+        $('#target').addClass('pop');
+      }
+    }
+  }
+
+  </script>
+</html>

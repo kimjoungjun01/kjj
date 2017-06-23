@@ -1,0 +1,12 @@
+package step27.ex1;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Test03 {
+  public static void main(String[] args) throws Exception {
+    ApplicationContext ctx = new ClassPathXmlApplicationContext("step27/ex1/application-context-02.xml");
+    
+    Car obj = (Car)ctx.getBean("c1");
+  }
+}

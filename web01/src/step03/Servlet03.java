@@ -2,17 +2,12 @@ package step03;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
-
-import step03.DBConnectionPool;
-import step03.Member;
-import step03.MemberDao;
 
 @WebServlet(urlPatterns="/step03/Servlet03")
 public class Servlet03 extends GenericServlet {

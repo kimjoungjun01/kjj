@@ -1,0 +1,60 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.game {
+  display: inline-table;
+  width: 100%;
+}
+
+.game-target-container {
+  position: relative;
+  background-image: url("img/T01.gif");
+  border: 1px darkgray solid;
+  display: table-cell;
+  height: 325px;
+  vertical-align: middle;
+  color : yellow;
+  text-align: center;
+  font-size: 40px;
+}
+.pop {
+  background-color: red;
+}
+
+#start {
+  font-size : 50px;
+  color : red;
+}
+
+#finish {
+  font-size : 80px;
+  color : blue;
+}
+
+#target {
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#timeout {
+  position: absolute;
+  top: 40px;
+  right: 120px;
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+#result {
+  font-size: 14px;
+}

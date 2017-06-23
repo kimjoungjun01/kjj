@@ -1,0 +1,8 @@
+package step27.ex12;
+
+import org.springframework.stereotype.Component;
+
+@Component("seta")
+public class DelltaEngine extends Engine{
+  boolean hybrid;
+}

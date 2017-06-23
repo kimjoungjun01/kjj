@@ -1,0 +1,14 @@
+package step26;
+
+public class test07 {
+
+  public static void main(String[] args) throws Exception {
+    String str = new String("Hello");
+    Class<?> clazz = String.class;
+    
+    clazz.getMethod("replace", char.class, char.class);
+    Object returnValue = m.invoke(str, 'l', 'x');
+    System.out.println(returnValue);
+  }
+  
+}

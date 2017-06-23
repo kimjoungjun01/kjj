@@ -1,0 +1,16 @@
+package step26;
+
+import java.lang.reflect.Method;
+
+public class test07 {
+
+  public static void main(String[] args) throws Exception {
+    String str = new String("Hello");
+    Class<?> clazz = String.class;
+    
+    Method m = clazz.getMethod("replace", char.class, char.class);
+    Object returnValue = m.invoke(str, 'l', 'x');
+    System.out.println(returnValue);
+  }
+  
+}

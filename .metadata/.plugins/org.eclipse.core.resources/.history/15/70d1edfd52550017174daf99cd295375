@@ -1,0 +1,21 @@
+package step26;
+
+import java.lang.reflect.Method;
+
+import javax.sound.midi.Synthesizer;
+
+public class test06 {
+
+  public static void main(String[] args) throws Exception {
+    Class<?> clazz = Math.class;
+    
+    Method m = clazz.getMethod("sin", double.class);
+    System.out.println(m);
+    
+    Class<?> returnType = m.getReturnType();
+    System.out.println(returnType.getName());
+
+    
+  }
+  
+}

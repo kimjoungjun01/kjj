@@ -1,0 +1,241 @@
+<!-- AJAX 사용법 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <style>
+.container {
+	position: relative;
+	border: 1px solid black;
+	width: 600px;
+	height: 600px;
+	margin: 0px auto;
+}
+
+#sun {
+	position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: red;
+	left: 300px;
+	top: 300px;
+
+}
+
+#earth {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: green;
+  left: 150px;
+  top: 300px;
+  color: green;
+  text-align: center;
+}
+
+#moon {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: gray;
+
+  left: 100px;
+  top: 300px;
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+<div id = "sun"></div>
+<div id = "earth"></div>
+<div id = "moon"></div>
+<input id = "start" type="button" onclick="onclickStart()" lick value = "실행">
+<input id = "up" type="button" onclick="upEvent()" value = "up">
+<input id = "down" type="button" onclick="downEvent()" value = "down">
+<input id = "top" type="button" onclick="onclickWe()" lick value = "위에서 보기">
+
+
+<script>
+"use strict"
+window.$ = window.jQuery = require('jquery')
+
+var earth = $('#earth')
+var moon = $('#moon')
+
+var degreex = 0
+var degreey = 0
+var x = 0
+var y = 0
+var ix = 0
+var iy = 0
+var first = true
+var mfirst = true
+var mdegreex = 0
+var mdegreey = 0
+
+function downEvent() {
+  if (iy > -150) {
+    iy -= 10
+  }
+
+  if (iy == -150 ) {
+    $("#up").remove()
+    $("#down").remove()
+     var repeat = setInterval(function () {
+
+        console.log(iy)
+        iy += 3
+        if (iy >= 0) {
+
+          clearInterval(repeat)
+          $("#moon").after('<input id = "up" type="button" onclick="downEvent()" value = "down">')
+          $("#moon").after('<input id = "down" type="button" onclick="upEvent()" value = "up">')        }
+      },50)
+  }
+}
+
+function onclickStart() {
+  xjul()
+}
+
+function onclickWe() {
+  yjul();
+
+}
+
+//아직 안만든 함수
+function onclickA() {
+  if (first == true) {
+    clearInterval(yjul)
+    setInterval(function () {
+      if (degreey > 360) {
+        degreey = 0
+      }
+      var ry = radian(degreey)
+
+      degreey += 1
+      y = Math.floor(Math.sin(ry) * (150 + iy) + 300)
+      // console.log(ry)
+      // console.log(y)
+      earth.css('top', y + 'px')
+
+
+    }, 10)
+  }
+
+}
+
+function xjul() {
+
+  var xjul = setInterval(function () {
+    if (degreex > 360) {
+      degreex = 0
+    }
+
+    var rx = radian(degreex)
+
+    degreex += 1
+
+    x = Math.floor(Math.cos(rx) * 150 + 300)
+    
+    earth.css('left', x + 'px')
+
+  }, 10)
+
+  var mxjul = setInterval(function() {
+
+    if (mdegreex > 360) {
+      mdegreex = 0
+    }
+    var mr = radian(mdegreex)
+    mdegreex += 1
+
+    var mx = Math.floor(Math.sin(mr) * 35 + x)
+
+    moon.css('left', mx + 'px')
+  }, 10)
+}
+
+
+function yjul() {
+  degreex = 0
+  mdegreex = 0
+  mdegreey = 0
+
+  var yjul = setInterval(function () {
+    // console.log(degreex)
+    if(degreex == 1) {
+      // console.log("이프")
+      first = false
+
+    }
+    if (degreey > 360) {
+
+      degreey = 0
+    }
+    if (first == false) {
+      var ry = radian(degreey)
+      degreey += 1
+      y = Math.floor(Math.sin(ry) * (150 + iy) + 300)
+      // console.log(ry)
+      // console.log(y)
+      earth.css('top', y + 'px')
+    }
+  }, 10)
+
+  var myjul = setInterval(function() {
+    console.log(mdegreex)
+
+    if (mdegreey > 360) {
+      mdegreey = 0
+    }
+    if (mdegreex == 1) {
+      console.log("문엑스")
+      mfirst = false
+    }
+    if (mfirst == false) {
+      var mr = radian(mdegreey)
+      mdegreey += 1
+
+      var my = Math.floor(Math.sin(mr) * 35 + y)
+
+      moon.css('top', my + 'px')
+    }
+  }, 10)
+
+}
+
+
+
+
+// setInterval(function() {
+//   if (mdegree > 360) {
+//     mdegree = 0
+//   }
+//   var mr = radian(mdegree)
+//   mdegree += 1
+//
+//   var my = Math.floor(Math.sin(mr) * 50 + y)
+//   var mx = Math.floor(Math.cos(mr) * 50 + x)
+//   moon.css('top', my + 'px').css('left', mx + 'px')
+// }, 10)
+//
+function radian(degree) {
+  return degree * Math.PI / 180
+}
+</script>
+</body>
+</html>
+
+
+<!-- -->

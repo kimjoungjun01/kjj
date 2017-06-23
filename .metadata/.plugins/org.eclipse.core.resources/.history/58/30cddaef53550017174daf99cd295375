@@ -1,0 +1,16 @@
+package step26;
+
+import java.lang.reflect.Method;
+
+import javax.sound.midi.Synthesizer;
+
+public class test07 {
+
+  public static void main(String[] args) throws Exception {
+    String str = new String("Hello");
+    Class<?> clazz = String.class;
+    
+    clazz.getMethod("replace", char.class, char.class)
+  }
+  
+}

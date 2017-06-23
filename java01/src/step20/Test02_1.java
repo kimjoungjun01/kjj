@@ -17,6 +17,8 @@ public class Test02_1 {
     java.sql.ResultSet rs = stmt.executeQuery("select mno, name, tel, email from memb");
     
     //next() 서버에서 결과를 한 개 가져온다
+    //가져왔으면 true 를 리턴한다
+    
     while (rs.next()) {
       
       System.out.printf("%d, %s, %s, %s\n",

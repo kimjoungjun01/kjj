@@ -65,11 +65,13 @@ public class Servlet02 extends GenericServlet {
       out.println("</thead>");
       out.println("<tbody>");
       
+      
       for (Croom c : list) {
         out.println("<tr>");
         out.printf("  <td>%d</td>\n", c.getNo());
         out.printf("  <td><a href='Servlet04?no=%d'>%s</a></td>\n", c.getNo(), c.getName());
         out.println("</tr>");
+        System.out.println(c.getNo());
       }
       out.println(" </tbody>");
       out.println("</table>");

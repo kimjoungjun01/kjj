@@ -1,0 +1,23 @@
+package step27.ex1;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.scripting.support.StandardScriptEvalException;
+
+public class Test03 {
+  public static void main(String[] args) throws Exception {
+    ApplicationContext ctx = new ClassPathXmlApplicationContext("step27/ex1/application-context-02.xml");
+    
+    Car obj1 = (Car)ctx.getBean("c1");
+    System.out.println(obj1);
+    
+    Car obj2 = (Car)ctx.getBean("c2");
+    System.out.println(obj2);
+    Car obj3 = (Car)ctx.getBean("c3");
+    System.out.println(obj1);
+    Car obj4 = (Car)ctx.getBean("c4");
+    System.out.println(obj1);
+    Car obj5 = (Car)ctx.getBean("c5");
+    System.out.println(obj1);
+  }
+}

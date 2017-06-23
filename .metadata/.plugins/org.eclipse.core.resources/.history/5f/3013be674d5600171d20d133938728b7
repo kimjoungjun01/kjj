@@ -1,0 +1,8 @@
+package step27.ex7;
+
+public class Snippet {
+  public static void main(String[] args) {
+    new Engine(10, 6);
+  }
+}
+

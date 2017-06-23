@@ -1,0 +1,56 @@
+package bitcamp.java93.control;
+/* 회원 관리 만들기 : 회원 변경하기 
+ * => MemberDao를 이용하여 클라이언트로부터 받은 회원 정보를 변경한다.
+ */
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import bitcamp.java93.service.TeacherService;
+
+@WebServlet(urlPatterns="/teacher/delete") 
+public class TeacherDeleteControl implements Controller {
+  TeacherService teacherService;
+  
+  
+  public void setTeacherService(TeacherService teacherService) {
+    this.teacherService = teacherService;
+  }
+  
+  @Override
+  public String service(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    
+    res.setContentType("text/html;charset=UTF-8");
+    PrintWriter out = res.getWriter();
+    
+    try {
+      int no = Integer.parseInt(req.getParameter("no"));
+      
+      TeacherService teacherService = (TeacherService)req.getServletContext().getAttribute("teacherService");
+      teacherService.remove(no);      
+    }
+      
+      return "redirect:list.do";
+    
+    
+    RequestDispatcher rd = req.getRequestDispatcher("/footer.jsp");
+    rd.include(req, res);
+    
+  }
+}
+
+
+
+
+
+
+
+
+
